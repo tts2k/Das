@@ -24,7 +24,7 @@ namespace SysInfoLib.Services
         }
 
         ///<summary> Get FileStream of MEMINFO_PATH </summary>
-        ///<returns> FileStream of MEMINFO_PATH </returns>>
+        ///<returns> FileStream of MEMINFO_PATH </returns>
         public string GetUpTime()
         {
             return File.ReadAllText(UPTIME_PATH);

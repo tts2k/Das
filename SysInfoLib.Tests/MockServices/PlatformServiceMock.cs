@@ -22,14 +22,19 @@ namespace SysInfoLib.Tests
             var res = File.ReadAllText("MockData/os-release.txt");
             return res;
         }
+
+        public string GetHostname()
+        {
+            var res = File.ReadAllText("MockData/hostname.txt");
+            return res;
+        }
     }
 
     public class PlatformServiceMockBad : IPlatformService
     {
         public (string output, string error) GetKernelVersion() { return (output: "", error: "err"); }
-
         public (string output, string error) GetArch() { return (output: "", error: "err"); }
-
         public string GetOsRelease() { return ""; }
+        public string GetHostname() { return ""; }
     }
 }

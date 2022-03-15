@@ -64,6 +64,20 @@ namespace SysInfoLib
             }
             return cmdOutput.output.Trim();
         }
+
+        ///<summary> Get Hostname </summary>
+        ///<returns> Hostname of current machine </returns>
+        public string Hostname()
+        {
+            string hostname = _service.GetHostname();
+
+            if (string.IsNullOrEmpty(hostname))
+            {
+                throw new PlatformInfoException("Couldn't propery parse hostname");
+            }
+
+            return hostname.Trim();;
+        }
     }
 
     ///<summary> Exception to throw a problem occurs during the process getting platform information </summary>

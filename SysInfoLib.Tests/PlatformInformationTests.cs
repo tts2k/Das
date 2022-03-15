@@ -24,14 +24,21 @@ namespace SysInfoLib.Tests
         public void Arch_Good()
         {
             var res = _good.Arch();
-            Assert.Equal("x86_64\n", res);
+            Assert.Equal("x86_64", res);
         }
 
         [Fact]
         public void KernelVersion_Good()
         {
             var res = _good.KernelVersion();
-            Assert.Equal("5.16.12-zen1-1-zen\n", res);
+            Assert.Equal("5.16.12-zen1-1-zen", res);
+        }
+
+        [Fact]
+        public void HostName_Good()
+        {
+            var res = _good.Hostname();
+            Assert.Equal("localhost", res);
         }
 
         [Fact]
@@ -50,6 +57,12 @@ namespace SysInfoLib.Tests
         public void KernelVersion_Bad()
         {
             Assert.Throws<PlatformInfoException>(() => _bad.KernelVersion());
+        }
+
+        [Fact]
+        public void HostName_Bad()
+        {
+            Assert.Throws<PlatformInfoException>(() => _bad.Hostname());
         }
    }
 }
