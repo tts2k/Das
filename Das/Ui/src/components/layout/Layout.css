@@ -1,0 +1,9 @@
+.wrapper-sidebar-open {
+    margin-left: 250px;
+    transition: margin-left .5s;
+}
+
+.wrapper-sidebar-close {
+    margin-left: 0;
+    transition: margin-left .5s;
+}

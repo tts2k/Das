@@ -4,7 +4,7 @@ using SysInfoLib;
 namespace Das.Controllers
 {
     [ApiController]
-    [Route("platform")]
+    [Route("api/platform")]
     public class PlatformInformationController : ControllerBase
     {
         private readonly PlatformInformation _platformInfo;
@@ -22,6 +22,14 @@ namespace Das.Controllers
             var arch = _platformInfo.Arch();
             var kernel = _platformInfo.KernelVersion();
             return Ok(new Platform(distro, arch, kernel));
+        }
+
+        [HttpGet("hostname")]
+        [Produces("application/json")]
+        public IActionResult GetPlatform()
+        {
+            var res = _platformInfo.Hostname();
+            return Ok(new {value = res});
         }
     }
 }

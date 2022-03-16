@@ -4,21 +4,21 @@ using SysInfoLib;
 namespace Das.Controllers
 {
     [ApiController]
-    [Route("system")]
+    [Route("api/system")]
     public class SystemInformationController : ControllerBase
     {
-        private readonly SystemInformation _sysinfo;
+        private readonly SystemInformation _sysInfo;
 
         public SystemInformationController(ILogger<SystemInformationController> logger)
         {
-            _sysinfo = new SystemInformation(logger);
+            _sysInfo = new SystemInformation(logger);
         }
 
         [HttpGet("cpu")]
         [Produces("application/json")]
         public async Task<IActionResult> GetCpuLoad()
         {
-            var res = await _sysinfo.CpuLoad(1);
+            var res = await _sysInfo.CpuLoad(1);
             return Ok(new {value = res});
         }
 
@@ -26,7 +26,7 @@ namespace Das.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> GetMemUsage()
         {
-            var res = await _sysinfo.MemUsage();
+            var res = await _sysInfo.MemUsage();
             return Ok(res);
         }
 
@@ -34,7 +34,7 @@ namespace Das.Controllers
         [Produces("application/json")]
         public IActionResult GetUpTime()
         {
-            var res = _sysinfo.UpTime();
+            var res = _sysInfo.UpTime();
             return Ok(res);
         }
     }

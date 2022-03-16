@@ -1,0 +1,31 @@
+.Sidebar {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.Sidebar-open {
+    width: 250px;
+}
+
+.Sidebar-close {
+    width: 0;
+}
+
+.Sidebar a {
+    display: block;
+    transition: 0.3;
+}
+
+.Sidebar ul {
+    list-style: none;
+}
+
+.SidebarTitle {
+    white-space: nowrap;
+}
